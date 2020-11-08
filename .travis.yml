@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "12.18.3"
+
+script:
+  - rm -rf dist
+  - npm run webpack
+
+deploy:
+  provider: surge
+  project: ./dist/
+  domain: truchetwebgl.surge.sh
+
+  skip_cleanup: true
