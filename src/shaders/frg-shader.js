@@ -25,10 +25,10 @@ uniform float time;
 
 #define MAX_DIST    20.
 #define MIN_DIST    .0002
-#define SCALE .95
+#define SCALE 1.45
 
 #define r2(a) mat2(cos(a),sin(a),-sin(a),cos(a))
-#define hue(a) .45 + .45 * cos(PI2* a * vec3(1.,.15,.25));
+#define hue(a) .45 + .45 * cos(PI2* a * vec3(.75,.35,.25));
 float hash21(vec2 p){  return fract(sin(dot(p, vec2(27.609, 57.583)))*43758.5453); }
 
 void getMouse( inout vec3 p ) {
@@ -54,7 +54,7 @@ float sdTorus( vec3 p, vec2 t, float a ) {
 // globals
 vec3 shp,fhp;
 vec2 sip,bid;
-float thsh;
+float thsh, t15;
 
 const float size = 1./SCALE;
 const float hlf = size/2.;
@@ -62,7 +62,7 @@ const float hlf = size/2.;
 vec2 map(vec3 q3){
     vec2 res = vec2(1000.,0.);
 
-    q3.x -= T*.35;
+    q3.x -= t15;
 
     float d = 1e5, t = 1e5;
     vec2 qid=floor((q3.xy+hlf)/size);
@@ -190,6 +190,7 @@ vec3 getColor(float m, vec3 p, vec3 n) {
 void main() {
     // precal
     trs = r2(PI*4.5);
+    t15 = T*.15;
     // Normalized coordinates (from -1 to 1)
     vec2 uv = (2.*gl_FragCoord.xy-R.xy)/max(R.x,R.y);
     vec3 C = vec3(0.);
