@@ -1,6 +1,6 @@
 ###
 
-![travis ci build](https://travis-ci.org/pjkarlik/truchet-webgl.svg?branch=master)
+![travis ci build](https://travis-ci.org/pjkarlik/truchet-webgl.svg?branch=main)
 
 # Raymarched Truchet Tiles | WebGL Fragment shader Boilerplate
 
