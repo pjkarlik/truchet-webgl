@@ -1,4 +1,4 @@
-import fragmentSource from "./shaders/frg-alt-shader";
+import fragmentSource from "./shaders/frg-shader";
 import vertexSource from "./shaders/vrt-shader";
 import Mouse from "./utils/mouse";
 
